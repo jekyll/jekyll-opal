@@ -28,7 +28,7 @@ the destination, under `js/opal.js`, if it's not already there. To prevent
 backwards-incompatible sites, we ship a `{{ site.opal.url }}` variable for
 your use in your sites. When output, it will look like this: `/js/opal.js`.
 
-If your site is in a subfolder, simply prepend a baseurl:
+If your site is served in a subfolder (i.e. `http://example.org/subfolder/`), simply prepend a baseurl:
 
 ```html
 <script src="{{ site.opal.url | prepend:"my_subfolder" }}"></script>

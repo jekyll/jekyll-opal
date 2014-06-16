@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'jekyll'
 
 TEST_DIR = File.dirname(__FILE__)
@@ -61,5 +62,31 @@ RSpec.configure do |config|
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended.
     mocks.verify_partial_doubles = true
+  end
+
+  def jekyll_conf(overrides = {})
+    Jekyll::Utils.deep_merge_hashes(
+      Jekyll::Configuration::DEFAULTS,
+      overrides
+    )
+  end
+
+  def fixture_site
+    Jekyll::Site.new jekyll_conf({
+      "source" => source_dir,
+      "destination" => dest_dir
+    })
+  end
+
+  def source_dir(*files)
+    test_dir("source", *files)
+  end
+
+  def dest_dir(*files)
+    test_dir("dest", *files)
+  end
+
+  def test_dir(*files)
+    File.join(TEST_DIR, *files)
   end
 end

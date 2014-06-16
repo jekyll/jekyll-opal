@@ -7,7 +7,7 @@ module Jekyll
       OPAL_LOCATION = File.join("js", "opal.js").freeze
 
       def generate(site)
-        write_file File.expand_path(OPAL_LOCATION, site.source)
+        write_file output_location(site)
         (site.keep_files ||= []) << OPAL_LOCATION
       end
 
@@ -28,6 +28,10 @@ module Jekyll
           require 'fileutils'
           FileUtils.mkdir_p(dir)
         end
+      end
+
+      def output_location(site)
+        File.expand_path(OPAL_LOCATION, site.dest)
       end
 
     end

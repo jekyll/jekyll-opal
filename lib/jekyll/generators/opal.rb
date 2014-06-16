@@ -4,9 +4,11 @@ module Jekyll
   module Generators
     class Opal < Generator
 
+      OPAL_LOCATION = File.join("js", "opal.js").freeze
+
       def generate(site)
-        lib_location = File.expand_path(File.join("js", "opal.js"), site.source)
-        site.keep_files << write_file(location)
+        write_file File.expand_path(OPAL_LOCATION, site.source)
+        (site.keep_files ||= []) << OPAL_LOCATION
       end
 
       def write_file(location)
@@ -14,7 +16,6 @@ module Jekyll
         File.open(location, 'wb') do |f|
           f.puts(opal_stdlib)
         end
-        location
       end
 
       def opal_stdlib

@@ -5,7 +5,7 @@ module Jekyll
     class Opal < Converter
 
       def matches(ext)
-        ext =~ /\.js.rb/i
+        !!(ext =~ /\.opal/i)
       end
 
       def output_ext(ext)
@@ -13,7 +13,7 @@ module Jekyll
       end
 
       def convert(content)
-        Opal.compile(content)
+        ::Opal.compile(content)
       end
 
     end

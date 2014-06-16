@@ -1,6 +1,6 @@
 # Jekyll-Opal
 
-Let Jekyll convert your Ruby into JavaScript using Opal.
+Let Jekyll convert your Ruby into JavaScript using [Opal](https://github.com/opal/opal).
 
 [![Build Status](https://travis-ci.org/jekyll/jekyll-opal.svg?branch=master)](https://travis-ci.org/jekyll/jekyll-opal)
 

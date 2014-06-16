@@ -2,6 +2,8 @@
 
 Let Jekyll convert your Ruby into JavaScript using Opal.
 
+[![Build Status](https://travis-ci.org/jekyll/jekyll-opal.svg?branch=master)](https://travis-ci.org/jekyll/jekyll-opal)
+
 ## Installation
 
 Add this line to your application's Gemfile:

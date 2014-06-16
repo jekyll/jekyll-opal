@@ -4,11 +4,9 @@ module Jekyll
   module Generators
     class Opal < Generator
 
-      OPAL_LOCATION = File.join("js", "opal.js").freeze
-
       def generate(site)
         write_file output_location(site)
-        (site.keep_files ||= []) << OPAL_LOCATION
+        keep_the_file(site)
       end
 
       def write_file(location)
@@ -32,7 +30,11 @@ module Jekyll
       end
 
       def output_location(site)
-        File.expand_path(OPAL_LOCATION, site.dest)
+        File.expand_path(Jekyll::Opal::OPAL_LIB_LOCATION, site.dest)
+      end
+
+      def keep_the_file(site)
+        (site.keep_files ||= []) << Jekyll::Opal::OPAL_LIB_LOCATION
       end
 
     end

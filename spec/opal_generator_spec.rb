@@ -5,10 +5,6 @@ describe(Jekyll::Generators::Opal) do
   let(:output_file) { dest_dir("js", "opal.js") }
   let(:site)        { fixture_site }
 
-  it "knows the relative output file path" do
-    expect(described_class::OPAL_LOCATION).to eql("js/opal.js")
-  end
-
   it "knows where to output the file" do
     expect(subject.output_location(site)).to eql(output_file)
   end
@@ -37,11 +33,11 @@ describe(Jekyll::Generators::Opal) do
       expect(subject.write_file(subject.output_location(site))).to eql(output_file)
       expect(File.file?(output_file)).to be(true)
     end
+  end
 
-    it "adds the outputted file to the site.keep_files list" do
-      expect(subject.generate(site)).not_to be_nil
-      expect(site.keep_files).to eql(%w(.git .svn js/opal.js))
-    end
+  it "adds the outputted file to the site.keep_files list" do
+    expect(subject.keep_the_file(site)).to include("js/opal.js")
+    expect(site.keep_files).to eql(%w(.git .svn js/opal.js))
   end
 
 end

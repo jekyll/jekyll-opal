@@ -7,6 +7,7 @@ module Jekyll
       def generate(site)
         write_file output_location(site)
         keep_the_file(site)
+        save_lib_file_location_to_config(site)
       end
 
       def write_file(location)
@@ -30,11 +31,24 @@ module Jekyll
       end
 
       def output_location(site)
-        File.expand_path(Jekyll::Opal::OPAL_LIB_LOCATION, site.dest)
+        File.expand_path(opal_lib_relative_path, site.dest)
       end
 
       def keep_the_file(site)
-        (site.keep_files ||= []) << Jekyll::Opal::OPAL_LIB_LOCATION
+        (site.keep_files ||= []) << opal_lib_relative_path
+      end
+
+      def save_lib_file_location_to_config(site)
+        site.config["opal"] = {
+          "version" => ::Opal::VERSION,
+
+          # must start with a forward slash!
+          "url"     => File.join("", opal_lib_relative_path)
+        }
+      end
+
+      def opal_lib_relative_path
+        Jekyll::Opal::OPAL_LIB_LOCATION
       end
 
     end

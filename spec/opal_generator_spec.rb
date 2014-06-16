@@ -40,4 +40,11 @@ describe(Jekyll::Generators::Opal) do
     expect(site.keep_files).to eql(%w(.git .svn js/opal.js))
   end
 
+  it "adds the 'opal' namespace for liquid" do
+    expect(subject.save_lib_file_location_to_config(site)).to eql({
+      "version" => Opal::VERSION, "url" => "/js/opal.js"
+    })
+    expect(site.config.has_key?("opal")).to be_truthy
+  end
+
 end

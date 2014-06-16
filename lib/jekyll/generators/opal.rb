@@ -16,10 +16,11 @@ module Jekyll
         File.open(location, 'wb') do |f|
           f.puts(opal_stdlib)
         end
+        location
       end
 
       def opal_stdlib
-        Opal::Builder.build('opal')
+        ::Opal::Builder.build('opal')
       end
 
       def ensure_directory(location)

@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'jekyll'
 
 TEST_DIR = File.dirname(__FILE__)
@@ -26,7 +27,7 @@ RSpec.configure do |config|
   # Print the 10 slowest examples and example groups at the
   # end of the spec run, to help surface which specs are running
   # particularly slow.
-  config.profile_examples = 10
+  config.profile_examples = 3
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
@@ -61,5 +62,31 @@ RSpec.configure do |config|
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended.
     mocks.verify_partial_doubles = true
+  end
+
+  def jekyll_conf(overrides = {})
+    Jekyll::Utils.deep_merge_hashes(
+      Jekyll::Configuration::DEFAULTS,
+      overrides
+    )
+  end
+
+  def fixture_site
+    Jekyll::Site.new jekyll_conf({
+      "source" => source_dir,
+      "destination" => dest_dir
+    })
+  end
+
+  def source_dir(*files)
+    test_dir("source", *files)
+  end
+
+  def dest_dir(*files)
+    test_dir("dest", *files)
+  end
+
+  def test_dir(*files)
+    File.join(TEST_DIR, *files)
   end
 end

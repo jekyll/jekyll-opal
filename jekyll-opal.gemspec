@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jekyll/opal/version'
+require 'jekyll-opal/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-opal"
   spec.version       = Jekyll::Opal::VERSION
   spec.authors       = ["Parker Moore"]
   spec.email         = ["parkrmoore@gmail.com"]
-  spec.summary       = %q{Convert your Ruby into JavaScript using Opal.}
+  spec.summary       = %q{Let Jekyll convert your Ruby into JavaScript using Opal.}
   spec.homepage      = "https://github.com/jekyll/jekyll-opal"
   spec.license       = "MIT"
 

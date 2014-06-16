@@ -1,6 +1,6 @@
-# Jekyll::Opal
+# Jekyll-Opal
 
-TODO: Write a gem description
+Let Jekyll convert your Ruby into JavaScript using Opal.
 
 ## Installation
 

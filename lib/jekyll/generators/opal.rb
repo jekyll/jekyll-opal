@@ -5,7 +5,7 @@ module Jekyll
     class Opal < Generator
 
       def generate(site)
-        write_file output_location(site)
+        write_file(output_location(site)) unless File.file?(output_location(site))
         keep_the_file(site)
         save_lib_file_location_to_config(site)
       end

@@ -20,11 +20,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Write your Opal in `.opal` files (be sure to add the two `---` lines at the
+top to make them pages!!)
+
+This plugin comes with a generator which creates the Opal library file in
+the destination, under `js/opal.js`, if it's not already there. To prevent
+backwards-incompatible sites, we ship a `{{ site.opal.url }}` variable for
+your use in your sites. When output, it will look like this: `/js/opal.js`.
+
+If your site is served in a subfolder (i.e. `http://example.org/subfolder/`), simply prepend a baseurl:
+
+```html
+<script src="{{ site.opal.url | prepend:"my_subfolder" }}"></script>
+```
+
+You can even prepend variables! Perhaps a URL?
+
+```html
+<script src="{{ site.opal.url | prepend:"my_subfolder" | prepend:site.url }}"></script>
+```
+
+Feel free to chain them like that -- they're just Liquid filters.
+
+File an issue if something isn't clear!
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/jekyll-opal/fork )
+1. Fork it ( https://github.com/jekyll/jekyll-opal/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

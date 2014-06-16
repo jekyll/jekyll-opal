@@ -16,7 +16,7 @@ JS
   end
 
   it "matches .opal files" do
-    expect(subject.matches(".opal")).to be(true)
+    expect(subject.matches(".opal")).to be_truthy
   end
 
   it "outputs .js" do

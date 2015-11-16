@@ -8,7 +8,9 @@ rvm:
 - 2.0
 notifications:
   email: false
-
+branches:
+  only:
+  - master
 
 matrix:
   include:

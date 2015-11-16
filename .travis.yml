@@ -1,5 +1,7 @@
 language: ruby
 script : script/cibuild
+sudo: false
+cache: bundler
 rvm:
 - 2.2
 - 2.1

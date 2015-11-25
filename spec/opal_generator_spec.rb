@@ -10,7 +10,7 @@ describe(Jekyll::Generators::Opal) do
   end
 
   it "can build the opal stdlib" do
-    expect(subject.opal_stdlib).to match("(Opal);")
+    expect(subject.opal_stdlib.to_s).to match("(Opal);")
   end
 
   context "when ensuring directory is there" do

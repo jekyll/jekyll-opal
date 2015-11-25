@@ -1,10 +1,8 @@
-## HEAD
+## 0.2.0 / 2015-11-25
 
 ### Minor Enhancements
 
   * Bump Opal dependency to v0.8.x (#8)
-
-### Bug Fixes
 
 ### Development Fixes
 

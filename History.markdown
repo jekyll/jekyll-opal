@@ -1,4 +1,4 @@
-## HEAD
+## 0.3.0 / 2016-06-13
 
 ### Minor Enhancements
 

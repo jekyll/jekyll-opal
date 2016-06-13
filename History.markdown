@@ -1,3 +1,9 @@
+## HEAD
+
+### Minor Enhancements
+
+  * Allow using versions of Opal beyond 0.8.x (aka 0.9.x) (#10)
+
 ## 0.2.0 / 2015-11-25
 
 ### Minor Enhancements

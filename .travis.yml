@@ -3,9 +3,8 @@ script : script/cibuild
 sudo: false
 cache: bundler
 rvm:
-- 2.2
-- 2.1
-- 2.0
+- 2.6
+- 2.4
 notifications:
   email: false
 branches:
